@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{url_for('static', filename='style.css')}}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% for cliente in content %}
+    <div class="teste">
+            <form action="" method="post">
+                <input type="text" name="nome" placeholder="novo nome...">
+                <input type="text" name="email" placeholder="novo email...">
+                <input type="hidden" name="id" value="{{cliente[0]}}">
+                <input type="submit" value="">
+            </form>
+            <p>Nome {{cliente[1]}}</p>
+            <p>Idade {{cliente[2]}}</p>
+            <p>Email {{cliente[3]}}</p>
+            <a href="/deletar?id={{cliente[0]}}">deletar</a>
+        </div>
+    {% endfor %}
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+</body>
+</html>
